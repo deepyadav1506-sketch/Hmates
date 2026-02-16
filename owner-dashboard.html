@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Owner Dashboard | HMates</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>HMates Owner Dashboard</h1>
+</header>
+
+<section class="dashboard">
+
+    <h2>Add Your Hostel</h2>
+
+    <form onsubmit="return addHostel()">
+
+        <input type="text" id="hostelName" placeholder="Hostel Name" required>
+        <input type="text" id="location" placeholder="Location" required>
+        <input type="text" id="price" placeholder="Price per Month" required>
+
+        <button type="submit">Add Hostel</button>
+
+    </form>
+
+    <div id="hostelList"></div>
+
+</section>
+
+<script src="js/script.js"></script>
+</body>
+</html>

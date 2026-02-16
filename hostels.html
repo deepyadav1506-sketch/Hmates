@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMates | Hostels</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo-section">
+        <h1>HMates</h1>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="hostels.html">Hostels</a>
+        <a href="booking.html">Book Now</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section>
+
+    <h2 style="text-align:center;">Available Hostels</h2>
+
+    <!-- SEARCH + FILTER -->
+
+        <select onchange="filterHostel(this.value)">
+            <option value="all">All</option>
+            <option value="boys">Boys</option>
+            <option value="girls">Girls</option>
+            <option value="premium">Premium</option>
+        </select>
+
+    </div>
+
+    <!-- CARDS -->
+    <div class="cards-container">
+
+        <div class="card boys">
+            <img src="css/boys.jpg" alt="Boys Hostel">
+            <h3>HMates Boys Hostel</h3>
+            <p>Location: Jaipur</p>
+            <p>Rooms: Single / Double</p>
+            <p>₹6000 / month</p>
+            <a href="booking.html" class="btn">Book Now</a>
+        </div>
+
+        <div class="card girls">
+            <img src="css/girls.jpg" alt="Girls Hostel">
+            <h3>HMates Girls Hostel</h3>
+            <p>Location: Jaipur</p>
+            <p>Rooms: Double / Dorm</p>
+            <p>₹5500 / month</p>
+            <a href="booking.html" class="btn">Book Now</a>
+        </div>
+
+        <div class="card premium">
+            <img src="css/premium.jpg" alt="Premium Hostel">
+            <h3>HMates Premium Hostel</h3>
+            <p>Location: Jaipur</p>
+            <p>Rooms: Single / AC</p>
+            <p>₹8500 / month</p>
+            <a href="booking.html" class="btn">Book Now</a>
+        </div>
+
+    </div>
+
+
+    <div class="university-cards">
+
+        <div class="uni-card">
+            <img src="css/jecrc.jpg" alt="JECRC">
+            <div class="uni-content">
+                <h3>JECRC University</h3>
+                <p>Jaipur • Boys & Girls Hostel</p>
+                <h4>from ₹6,000/month</h4>
+                 <a href="booking.html" class="uni-btn">Book Now</a>
+            </div>
+        </div>
+
+        <div class="uni-card">
+            <img src="css/poornima.jpg" alt="Poornima">
+            <div class="uni-content">
+                <h3>Poornima University</h3>
+                <p>Jaipur • AC & Non-AC Rooms</p>
+                <h4>from ₹5,500/month</h4>
+                 <a href="booking.html" class="uni-btn">Book Now</a>
+            </div>
+        </div>
+
+        <div class="uni-card">
+            <img src="css/skit.jpg" alt="SKIT">
+            <div class="uni-content">
+                <h3>SKIT University</h3>
+                <p>Jaipur • Secure Campus Hostel</p>
+                <h4>from ₹6,800/month</h4>
+                 <a href="booking.html" class="uni-btn">Book Now</a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 HMates | Developed by Tech Trio</p>
+</footer>
+
+<!-- IMPORTANT: Script Link -->
+<script src="js/script.js"></script>
+
+</body>
+</html>

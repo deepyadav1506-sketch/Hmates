@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HMates | Book Hostel</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>HMates</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="hostels.html">Hostels</a>
+        <a href="booking.html">Book Now</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section>
+    <h2>Book Your Hostel</h2>
+
+    <form onsubmit="return bookHostel()">
+        <label>Full Name</label><br>
+        <input type="text" id="name" required><br><br>
+
+        <label>Phone Number</label><br>
+        <input type="tel" id="phone" required><br><br>
+
+        <label>Select Hostel</label><br>
+        <select id="hostel" onchange="updatePrice()">
+            <select id="room" onchange="updatePrice()">
+
+
+        <select id="hostel">
+            <option>HMates Boys Hostel</option>
+            <option>HMates Girls Hostel</option>
+            <option>HMates Premium Hostel</option>
+        </select><br><br>
+
+        <label>Room Type</label><br>
+        <select id="room">
+            <p><strong>Monthly Price:</strong> ₹<span id="price">0</span></p>
+
+            <option>Single</option>
+            <option>Double</option>
+            <option>Dorm</option>
+        </select><br><br>
+
+        <label>Check-in Date</label><br>
+        <input type="date" required><br><br>
+
+        <button type="submit">Submit Booking</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2026 HMates | Developed by Tech Trio</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
