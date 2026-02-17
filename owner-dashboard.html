@@ -1,32 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Owner Dashboard | HMates</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Dashboard | HMates Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
+<body class="dashboard-body">
 
-<header>
-    <h1>HMates Owner Dashboard</h1>
+<header class="dashboard-header">
+    <div class="logo-section">
+        <img src="css/logo.jpg" alt="Logo" width="45">
+        <h1>HMates<span> Admin</span></h1>
+    </div>
+    <nav>
+        <span class="welcome-text">Welcome, Hostel Owner</span>
+        <a href="login.html" class="nav-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
 </header>
 
-<section class="dashboard">
+<div class="dashboard-layout">
+    <aside class="sidebar">
+        <ul>
+            <li class="active"><a href="#"><i class="fas fa-plus-circle"></i> Add Hostel</a></li>
+            <li><a href="#"><i class="fas fa-hotel"></i> My Hostels</a></li>
+            <li><a href="#"><i class="fas fa-users"></i> Bookings</a></li>
+            <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+        </ul>
+    </aside>
 
-    <h2>Add Your Hostel</h2>
+    <main class="dashboard-main">
+        <section class="add-hostel-section">
+            <div class="section-title">
+                <h2>Manage Your Property</h2>
+                <p>Fill in the details to list a new hostel on HMates.</p>
+            </div>
+             <div class="owner-form-container">
+            <h2>List Your Hostel</h2> 
+    <form onsubmit="return saveHostelData()">
+        <input type="text" id="hName" placeholder="Hostel Name" required>
+        <input type="text" id="hLocation" placeholder="Location (e.g. Near JECRC)" required>
+        
+        <div class="form-row">
+            <select id="hType">
+                <option value="boys">Boys Hostel</option>
+                <option value="girls">Girls Hostel</option>
+            </select>
+            
+            <input type="number" id="basePrice" placeholder="Base Price (Single Room)" required>
+        </div>
 
-    <form onsubmit="return addHostel()">
+        <div class="form-row">
+            <input type="number" id="doubleDisc" placeholder="Discount for Double Sharing (e.g. 500)">
+            <input type="number" id="acExtra" placeholder="Extra for AC (e.g. 1500)">
+        </div>
 
-        <input type="text" id="hostelName" placeholder="Hostel Name" required>
-        <input type="text" id="location" placeholder="Location" required>
-        <input type="text" id="price" placeholder="Price per Month" required>
-
-        <button type="submit">Add Hostel</button>
-
+        <button type="submit" class="btn">List Hostel Now</button>
     </form>
+</div>
 
-    <div id="hostelList"></div>
+        </section>
 
-</section>
+        <section class="listings-section">
+            <h3>Your Active Listings</h3>
+            <div id="hostelList" class="dashboard-grid">
+               
+            </div>
+        </section>
+    </main>
+</div>
+
+<footer>
+    <p>© 2026 HMates Admin | Property Management Portal</p>
+</footer>
 
 <script src="js/script.js"></script>
 </body>
