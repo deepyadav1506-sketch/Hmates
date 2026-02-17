@@ -1,37 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">    
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HMates | Login</title>
+    <title>HMates | Access Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+<body class="login-page">
 
-
-<body class="login-body">
-
-<header class="login-header">
+<header class="transparent-header">
     <div class="logo-section">
-        <img src="images/logo.png" alt="Logo">
-        <h1>HMates</h1>
+        <img src="css/logo.jpg" alt="Logo" width="45">
+        <h1>HMates<span>.</span></h1>
     </div>
+    <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
 </header>
 
-<section class="login-section">
-    <div class="login-box">
-        <h2>Login to HMates</h2>
-
-        <select id="role">
-            <option value="customer">Login as Customer</option>
-            <option value="owner">Login as Hostel Owner</option>
-        </select>
+<section class="login-wrapper">
+    <div class="login-card">
+        <div class="login-icon">
+            <i class="fas fa-user-shield"></i>
+        </div>
+        <h2>Welcome Back</h2>
+        <p>Log in to manage your bookings or hostel listings.</p>
 
         <form onsubmit="return loginUser()">
-            <input type="email" id="email" placeholder="Enter Email" required>
-            <input type="password" id="password" placeholder="Enter Password" required>
-            <button type="submit">Login</button>
+            <div class="input-group">
+                <label for="role">Select Your Role</label>
+                <select id="role">
+                    <option value="customer">Student / Customer</option>
+                    <option value="owner">Hostel Owner</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <input type="email" id="email" placeholder="Email Address" required>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+
+            <button type="submit" class="btn-login">Login to Dashboard</button>
         </form>
 
+        <div class="login-footer">
+            <p>Don't have an account? <a href="#">Register here</a></p>
+        </div>
     </div>
 </section>
 
