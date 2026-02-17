@@ -293,3 +293,22 @@ footer {
     margin-top: 10px;
     font-style: italic;
 }
+.about {
+    width: 90%;
+    margin: 60px auto;
+    padding: 60px 40px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #eef2ff, #f8fafc);
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.about h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.about p {
+    color: #475569;
+    font-size: 16px;
+}
