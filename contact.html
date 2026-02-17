@@ -2,33 +2,75 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>HMates | Contact Us</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMates | Contact Support</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
 <header>
-    <h1>HMates</h1>
+    <div class="logo-section">
+        <img src="css/logo.jpg" alt="Logo" width="50">
+        <h1>HMates<span>.</span></h1>
+    </div>
     <nav>
         <a href="index.html">Home</a>
         <a href="hostels.html">Hostels</a>
         <a href="booking.html">Book Now</a>
-        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="active">Contact</a>
     </nav>
 </header>
 
-<section>
-    <h2>Contact Us</h2>
-    <p>If you have any questions or need support, feel free to contact us.</p>
+<section class="contact-hero">
+    <h2>Get In Touch</h2>
+    <p>We are here to help you find your perfect stay!</p>
+</section>
 
-    <p><strong>Email:</strong> support@hmates.com</p>
-    <p><strong>Phone:</strong> +91 8005711830</p>
-    <p><strong>Location:</strong> Jaipur, Rajasthan</p>
+<section class="contact-container">
+    <div class="contact-info">
+        <div class="info-card">
+            <i class="fas fa-envelope"></i>
+            <h3>Email Us</h3>
+            <p>support@hmates.com</p>
+        </div>
+        <div class="info-card">
+            <i class="fas fa-phone-alt"></i>
+            <h3>Call Us</h3>
+            <p>+91 8005711830</p>
+        </div>
+        <div class="info-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>Our Office</h3>
+            <p>Jaipur, Rajasthan (Near JECRC)</p>
+        </div>
+    </div>
+
+    <div class="contact-grid">
+        <div class="contact-form">
+            <h3>Send us a Message</h3>
+            <form action="#">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="How can we help you?" rows="5" required></textarea>
+                <button type="submit" class="btn primary">Send Message</button>
+            </form>
+        </div>
+        
+        <div class="map-box">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3561.222234057631!2d75.8222953752211!3d26.79308116523171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396dc901027909c9%3A0xc486411516e45f94!2sJECRC%20University!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                width="100%" height="350" style="border:0; border-radius: 20px;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+    </div>
 </section>
 
 <footer>
     <p>© 2026 HMates | Developed by Tech Trio</p>
 </footer>
 
+<script src="js/script.js"></script>
 </body>
 </html>
