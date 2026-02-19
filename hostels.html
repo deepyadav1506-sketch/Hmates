@@ -8,44 +8,43 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
+<body class="bg-light">
 
-<header>
-    <div class="logo-section">
-        <img src="css/logo.jpg" alt="Logo" width="50">
-        <h1>HMates<span>.</span></h1>
+<header class="main-header">
+    <div class="container navbar">
+        <div class="logo-section">
+            <img src="css/logo.jpg" alt="Logo" width="45">
+            <h1>HMates<span>.</span></h1>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="hostels.html" class="active">Hostels</a>
+            <a href="booking.html">Book Now</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html" class="login-btn">Login</a>
+        </nav>
     </div>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="hostels.html" class="active">Hostels</a>
-        <a href="booking.html">Book Now</a>
-        <a href="contact.html">Contact</a>
-    </nav>
 </header>
 
-<section class="hostel-listing">
-    <div class="listing-header">
+<section class="hostel-listing container">
+    <div class="listing-header text-center">
         <h2>Explore Available Hostels</h2>
-        <p>Find the best stay near your university</p>
+        <p>Verified stays near Schools, Colleges, and Universities in Jaipur.</p>
     </div>
 
-    <div class="filter-container">
-        <div class="search-bar-mini">
-            <i class="fas fa-search"></i>
-            <input type="text" id="hostelSearch" placeholder="Search hostels...">
-        </div>
-        <div class="filter-options">
+    <div class="filter-wrapper">
+        <div class="filter-box">
             <label><i class="fas fa-filter"></i> Category:</label>
-            <select onchange="filterHostel(this.value)">
+            <select id="hostelFilter" onchange="filterHostelsByRole(this.value)">
                 <option value="all">All Categories</option>
-                <option value="boys">Boys Hostel</option>
-                <option value="girls">Girls Hostel</option>
-                <option value="premium">Premium/AC</option>
+                <option value="boys">Boys Hostels</option>
+                <option value="girls">Girls Hostels</option>
+                <option value="premium">Premium/Luxury</option>
             </select>
         </div>
     </div>
 
-    <div class="cards-container">
+    <div class="cards-container" id="hostelCardsGrid">
         <div class="card boys">
             <div class="card-img">
                 <img src="css/boys.jpg" alt="Boys Hostel">
@@ -54,12 +53,11 @@
             <div class="card-info">
                 <h3>HMates Boys Hostel</h3>
                 <p><i class="fas fa-map-marker-alt"></i> Near JECRC University, Jaipur</p>
-        
                 <div class="amenities">
-    <span><i class="fas fa-snowflake"></i> AC Available</span><br>
-    <span><i class="fas fa-fan"></i> Non-AC Available</span><br>
-    <span><i class="fas fa-wifi"></i> Free WiFi</span>
-</div>
+                    <span><i class="fas fa-snowflake"></i> AC/Non-AC</span>
+                    <span><i class="fas fa-wifi"></i> Free WiFi</span>
+                    <span><i class="fas fa-utensils"></i> Food Included</span>
+                </div>
                 <div class="card-footer">
                     <span class="price">₹6,000/mo</span>
                     <a href="booking.html" class="btn-sm">Book</a>
@@ -76,10 +74,10 @@
                 <h3>HMates Girls Hostel</h3>
                 <p><i class="fas fa-map-marker-alt"></i> Near Poornima, Jaipur</p>
                 <div class="amenities">
-    <span><i class="fas fa-snowflake"></i> AC Available</span><br>
-    <span><i class="fas fa-fan"></i> Non-AC Available</span><br>
-    <span><i class="fas fa-wifi"></i> Free WiFi</span>
-</div>
+                    <span><i class="fas fa-snowflake"></i> AC/Non-AC</span>
+                    <span><i class="fas fa-wifi"></i> Free WiFi</span>
+                    <span><i class="fas fa-shield-alt"></i> 24/7 Security</span>
+                </div>
                 <div class="card-footer">
                     <span class="price">₹5,500/mo</span>
                     <a href="booking.html" class="btn-sm">Book</a>
@@ -96,10 +94,10 @@
                 <h3>HMates Luxury Stay</h3>
                 <p><i class="fas fa-map-marker-alt"></i> Jagatpura, Jaipur</p>
                 <div class="amenities">
-    <span><i class="fas fa-snowflake"></i> AC Available</span><br>
-    <span><i class="fas fa-fan"></i> Non-AC Available</span><br>
-    <span><i class="fas fa-wifi"></i> Free WiFi</span>
-</div>
+                    <span><i class="fas fa-snowflake"></i> Fully AC</span>
+                    <span><i class="fas fa-dumbbell"></i> Gym Access</span>
+                    <span><i class="fas fa-wifi"></i> High-Speed WiFi</span>
+                </div>
                 <div class="card-footer">
                     <span class="price">₹8,500/mo</span>
                     <a href="booking.html" class="btn-sm">Book</a>
@@ -108,44 +106,9 @@
         </div>
     </div>
 </section>
-<section class="university-listing">
-    <h2 style="text-align:center; margin-top:40px;">Hostels by University</h2>
-    <div class="university-cards">
-        
-        <div class="uni-card">
-            <img src="css/jecrc.jpg" alt="JECRC">
-            <div class="uni-content">
-                <h3>JECRC University</h3>
-                <p>Jaipur • Boys & Girls Hostel</p>
-                <h4>Starts from ₹6,000</h4>
-                <a href="booking.html" class="btn">View All Rooms</a>
-            </div>
-        </div>
 
-        <div class="uni-card">
-            <img src="css/poornima.jpg" alt="Poornima">
-            <div class="uni-content">
-                <h3>Poornima University</h3>
-                <p>Jaipur • AC & Non-AC Rooms</p>
-                <h4>Starts from ₹5,500</h4>
-                <a href="booking.html" class="btn">View All Rooms</a>
-            </div>
-        </div>
-
-        <div class="uni-card">
-            <img src="css/skit.jpg" alt="SKIT">
-            <div class="uni-content">
-                <h3>SKIT University</h3>
-                <p>Jaipur • Secure Campus</p>
-                <h4>Starts from ₹6,800</h4>
-                <a href="booking.html" class="btn">View All Rooms</a>
-            </div>
-        </div>
-
-    </div>
-</section>
-<footer>
-    <p>© 2026 HMates | Designed for Tech Savvy Students</p>
+<footer class="text-center">
+    <p>© 2026 HMates | Designed by Deepak Yadav & Tech Trio at JECRC</p>
 </footer>
 
 <script src="js/script.js"></script>
