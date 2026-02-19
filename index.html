@@ -3,54 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HMates | Premium Hostel Booking</title>
+    <title>HMates | Universal Hostel Booking</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-<header>
-    <div class="logo-section">
-        <img src="css/logo.jpg" alt="HMates Logo">
-        <h1>HMates<span>.</span></h1>
-    </div>
+<header class="main-header">
+    <div class="container navbar">
+        <a href="index.html" class="logo">
+            <img src="css/logo.jpg" alt="HMates Logo">
+            <h1>HMates<span>.</span></h1>
+        </a>
 
-    <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="hostels.html">Hostels</a>
-        <a href="booking.html">Book Now</a>
-        <a href="contact.html">Contact</a>
-        <a href="login.html" class="nav-btn">Login</a>
-    </nav>
+        <nav class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="hostels.html">Hostels</a>
+            <a href="booking.html">Book Now</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html" class="login-btn">Login</a>
+        </nav>
+    </div>
 </header>
-<!-- ABOUT SECTION -->
-<section class="about">
-    <h2>Welcome to HMates</h2>
-   
+
+<section class="about" id="welcome-section">
+    <div class="container">
+        <h2 id="welcome-text">Welcome to HMates</h2>
+        <p id="welcome-subtext">Find your home away from home near any institution.</p>
+    </div>
 </section>
+
 <section class="hero">
-    <div class="hero-content">
-        <h1>Find Your <span>Second Home</span> in Jaipur</h1>
-        <p>Premium, safe, and student-friendly hostels near JECRC, Poornima, and SKIT.</p>
-        
-        <div class="search-box">
-            <i class="fas fa-search"></i>
-            <input type="text" placeholder="Search by University or Area...">
-            <button class="btn-search">Search</button>
-        </div>
-        
-        <div class="hero-btns">
-            <a href="hostels.html" class="btn primary">Explore Now</a>
-            <a href="#about" class="btn secondary">Learn More</a>
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1>Find Your <span>Second Home</span> in Jaipur</h1>
+            <p>Premium, safe, and student-friendly hostels near Schools, Colleges, and Universities.</p>
+            
+            <div class="hero-btns">
+                <a href="hostels.html" class="btn-primary-large">Explore All Hostels <i class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
     </div>
 </section>
 
-<section class="university-section">
+<section class="university-section container">
     <div class="section-header">
-        <h2>Top University Hostels</h2>
-        <p>Preferred choices for students from leading institutions</p>
+        <h2>Top Institutions</h2>
+        <p>Preferred choices near leading universities and schools</p>
     </div>
 
     <div class="university-cards">
@@ -63,10 +63,9 @@
                 <h3>JECRC University</h3>
                 <p><i class="fas fa-map-marker-alt"></i> Sitapura, Jaipur</p>
                 <div class="price-tag">Starting from <span>₹6,000</span></div>
-                <a href="booking.html" class="uni-btn">Reserve Space</a>
+                <a href="hostels.html" class="uni-btn">View Hostels</a>
             </div>
         </div>
-
         <div class="uni-card">
             <div class="image-container">
                 <img src="css/poornima.jpg" alt="Poornima">
@@ -75,91 +74,61 @@
                 <h3>Poornima University</h3>
                 <p><i class="fas fa-map-marker-alt"></i> Ramchandrapura, Jaipur</p>
                 <div class="price-tag">Starting from <span>₹5,500</span></div>
-                <a href="booking.html" class="uni-btn">Reserve Space</a>
+                <a href="hostels.html" class="uni-btn">View Hostels</a>
             </div>
         </div>
-
         <div class="uni-card">
             <div class="image-container">
                 <img src="css/skit.jpg" alt="SKIT">
             </div>
             <div class="uni-content">
-                <h3>SKIT University</h3>
+                <h3>SKIT / School Zone</h3>
                 <p><i class="fas fa-map-marker-alt"></i> Jagatpura, Jaipur</p>
                 <div class="price-tag">Starting from <span>₹6,800</span></div>
-                <a href="booking.html" class="uni-btn">Reserve Space</a>
+                <a href="hostels.html" class="uni-btn">View Hostels</a>
             </div>
         </div>
     </div>
 </section>
-<section class="hostel-listing">
-    <h2 style="text-align:center; margin-top:40px;">Our Featured Hostels</h2>
-    <div class="cards-container">
+
+<section class="hostel-listing container">
+    <h2 class="text-center">Recently Added Hostels</h2>
+    <div id="home-hostel-grid" class="cards-container">
         <div class="card boys">
             <img src="css/boys.jpg" alt="Boys Hostel">
             <div class="card-info">
                 <h3>HMates Boys Hostel</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Near JECRC University, Jaipur</p>
+                <p><i class="fas fa-map-marker-alt"></i> Sitapura, Jaipur</p>
                 <div class="card-footer">
                     <span class="price">₹6,000/mo</span>
                     <a href="booking.html" class="btn-sm">Book Now</a>
                 </div>
             </div>
         </div>
-
-        <div class="card girls">
-            <img src="css/girls.jpg" alt="Girls Hostel">
-            <div class="card-info">
-                <h3>HMates Girls Hostel</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Near Poornima University, Jaipur</p>
-                <div class="card-footer">
-                    <span class="price">₹5,500/mo</span>
-                    <a href="booking.html" class="btn-sm">Book Now</a>
-                </div>
-            </div>
-        </div>
-        <div class="card premium">
-            <img src="css/premium.jpg" alt="Premium Hostel">
-            <div class="card-info">
-                <h3 >HMates Premium Hostel</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Jagatpura, Jaipur</p>
-                <div class="card-footer">
-                    <span class="price">₹8,500/mo</span>
-                    <a href="booking.html" class="btn-sm">Book Now</a>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
-<section class="about" id="about">
-    <div class="about-container">
+
+<section class="about-stats-section" id="about">
+    <div class="container about-flex">
         <div class="about-text">
             <h2>Why Students Love <span>HMates</span></h2>
-            <p>
-                HMates is more than just a booking platform. We bridge the gap between students and quality living spaces, ensuring a hassle-free transition to university life.
-            </p>
+            <p>We bridge the gap between students and quality living spaces, ensuring a hassle-free transition to Jaipur's academic life.</p>
             <ul class="features-list">
                 <li><i class="fas fa-check-circle"></i> Verified Listings</li>
-                <li><i class="fas fa-shield-alt"></i> 24/7 Security Focus</li>
-                <li><i class="fas fa-bolt"></i> Instant Online Booking</li>
+                <li><i class="fas fa-shield-alt"></i> Anti-Fraud Security</li>
+                <li><i class="fas fa-bolt"></i> Instant Local Booking</li>
             </ul>
         </div>
-        <div class="about-stats">
-            <div class="stat-card">
-                <h3>500+</h3>
-                <p>Happy Students</p>
-            </div>
-            <div class="stat-card">
-                <h3>20+</h3>
-                <p>Top Hostels</p>
-            </div>
+        <div class="stats-grid">
+            <div class="stat-card"><h3>500+</h3><p>Students</p></div>
+            <div class="stat-card"><h3>20+</h3><p>Top Hostels</p></div>
         </div>
     </div>
 </section>
 
 <footer>
-    <div class="footer-content">
-        <p>© 2026 HMates | Designed by Tech Trio at JECRC</p>
+    <div class="container footer-content">
+        <p>© 2026 HMates | Designed by Deepak Yadav & Tech Trio at JECRC</p>
         <div class="social-links">
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -169,6 +138,6 @@
 </footer>
 
 <script src="js/script.js"></script>
+
 </body>
 </html>
-
