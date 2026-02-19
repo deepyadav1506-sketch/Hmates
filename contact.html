@@ -3,74 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HMates | Contact Support</title>
+    <title>Contact Us | HMates Support</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<header>
-    <div class="logo-section">
-        <img src="css/logo.jpg" alt="Logo" width="50">
-        <h1>HMates<span>.</span></h1>
-    </div>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="hostels.html">Hostels</a>
-        <a href="booking.html">Book Now</a>
-        <a href="contact.html" class="active">Contact</a>
-    </nav>
-</header>
-
-<section class="contact-hero">
-    <h2>Get In Touch</h2>
-    <p>We are here to help you find your perfect stay!</p>
-</section>
-
-<section class="contact-container">
-    <div class="contact-info">
-        <div class="info-card">
-            <i class="fas fa-envelope"></i>
-            <h3>Email Us</h3>
-            <p>support@hmates.com</p>
+    <header class="main-header">
+        <div class="container navbar">
+            <div class="logo">
+                <img src="css/logo.jpg" alt="HMates Logo">
+                <h1>HMates<span>.</span></h1>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="hostels.html">Explore</a>
+                <a href="booking.html">Book Now</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
         </div>
-        <div class="info-card">
-            <i class="fas fa-phone-alt"></i>
-            <h3>Call Us</h3>
-            <p>+91 8005711830</p>
-        </div>
-        <div class="info-card">
-            <i class="fas fa-map-marker-alt"></i>
-            <h3>Our Office</h3>
-            <p>Jaipur, Rajasthan (Near JECRC)</p>
-        </div>
-    </div>
+    </header>
 
-    <div class="contact-grid">
-        <div class="contact-form">
-            <h3>Send us a Message</h3>
-            <form action="#">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="How can we help you?" rows="5" required></textarea>
-                <button type="submit" class="btn primary">Send Message</button>
-            </form>
-        </div>
-        
-        <div class="map-box">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3561.222234057631!2d75.8222953752211!3d26.79308116523171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396dc901027909c9%3A0xc486411516e45f94!2sJECRC%20University!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
-                width="100%" height="350" style="border:0; border-radius: 20px;" allowfullscreen="" loading="lazy">
-            </iframe>
-        </div>
-    </div>
-</section>
+    <main class="container contact-main" style="margin-top: 50px; padding-bottom: 50px;">
+        <div class="contact-grid" style="display: grid; grid-template-columns: 1fr 2fr; gap: 40px;">
+            
+            <div class="contact-info-sidebar">
+                <div class="detail-card" style="background: white; padding: 25px; border-radius: 12px; box-shadow: var(--shadow); text-align: center; margin-bottom: 20px;">
+                    <i class="fas fa-university" style="color: var(--accent-color); font-size: 30px; margin-bottom: 10px;"></i>
+                    <h4>Main Office</h4>
+                    <p>Near JECRC University, Sitapura, Jaipur</p>
+                </div>
+                
+                <div class="detail-card" style="background: white; padding: 25px; border-radius: 12px; box-shadow: var(--shadow); text-align: center;">
+                    <i class="fas fa-headset" style="color: var(--accent-color); font-size: 30px; margin-bottom: 10px;"></i>
+                    <h4>24/7 Support</h4>
+                    <p>support@hmates.com</p>
+                    <p>+91 98765 43210</p>
+                </div>
+            </div>
 
-<footer>
-    <p>© 2026 HMates | Developed by Tech Trio</p>
-</footer>
+            <div class="contact-form-container" style="background: white; padding: 40px; border-radius: 15px; box-shadow: var(--shadow);">
+                <form id="frontendContactForm">
+                    <h3 style="margin-bottom: 20px; color: var(--primary-color);">Send a Message</h3>
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label>Full Name</label>
+                        <input type="text" id="cName" placeholder="Enter your name" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px;" required>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label>Email</label>
+                        <input type="email" id="cEmail" placeholder="Enter your email" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px;" required>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label>Message</label>
+                        <textarea id="cMessage" rows="5" placeholder="How can we help?" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px;" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-search" style="width: 100%; background: var(--accent-color); color: white; border: none; padding: 15px; border-radius: 8px; font-weight: 600; cursor: pointer;">Submit Message</button>
+                </form>
+            </div>
+        </div>
+    </main>
 
-<script src="js/script.js"></script>
+    <footer class="footer-bottom" style="text-align: center; padding: 20px; background: var(--primary-color); color: white;">
+        <p>&copy; 2026 HMates | Local Storage Edition</p>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
