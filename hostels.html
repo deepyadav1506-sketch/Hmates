@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMates | Explore Hostels</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-light">
+
+<header class="main-header">
+    <div class="container navbar">
+        <div class="logo-section">
+            <img src="css/logo.jpg" alt="Logo" width="45">
+            <h1>HMates<span>.</span></h1>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="hostels.html" class="active">Hostels</a>
+            <a href="booking.html">Book Now</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html" class="login-btn">Login</a>
+        </nav>
+    </div>
+</header>
+
+<section class="hostel-listing container">
+    <div class="listing-header text-center">
+        <h2>Explore Available Hostels</h2>
+        <p>Verified stays near Schools, Colleges, and Universities in Jaipur.</p>
+    </div>
+
+    <div class="filter-wrapper">
+        <div class="filter-box">
+            <label><i class="fas fa-filter"></i> Category:</label>
+            <select id="hostelFilter" onchange="filterHostelsByRole(this.value)">
+                <option value="all">All Categories</option>
+                <option value="boys">Boys Hostels</option>
+                <option value="girls">Girls Hostels</option>
+                <option value="premium">Premium/Luxury</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="cards-container" id="hostelCardsGrid">
+        <div class="card boys">
+            <div class="card-img">
+                <img src="css/boys.jpg" alt="Boys Hostel">
+                <span class="tag">Boys</span>
+            </div>
+            <div class="card-info">
+                <h3>HMates Boys Hostel</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Near JECRC University, Jaipur</p>
+                <div class="amenities">
+                    <span><i class="fas fa-snowflake"></i> AC/Non-AC</span>
+                    <span><i class="fas fa-wifi"></i> Free WiFi</span>
+                    <span><i class="fas fa-utensils"></i> Food Included</span>
+                </div>
+                <div class="card-footer">
+                    <span class="price">₹6,000/mo</span>
+                    <a href="booking.html" class="btn-sm">Book</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card girls">
+            <div class="card-img">
+                <img src="css/girls.jpg" alt="Girls Hostel">
+                <span class="tag">Girls</span>
+            </div>
+            <div class="card-info">
+                <h3>HMates Girls Hostel</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Near Poornima, Jaipur</p>
+                <div class="amenities">
+                    <span><i class="fas fa-snowflake"></i> AC/Non-AC</span>
+                    <span><i class="fas fa-wifi"></i> Free WiFi</span>
+                    <span><i class="fas fa-shield-alt"></i> 24/7 Security</span>
+                </div>
+                <div class="card-footer">
+                    <span class="price">₹5,500/mo</span>
+                    <a href="booking.html" class="btn-sm">Book</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card premium">
+            <div class="card-img">
+                <img src="css/premium.jpg" alt="Premium Hostel">
+                <span class="tag gold">Premium</span>
+            </div>
+            <div class="card-info">
+                <h3>HMates Luxury Stay</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Jagatpura, Jaipur</p>
+                <div class="amenities">
+                    <span><i class="fas fa-snowflake"></i> Fully AC</span>
+                    <span><i class="fas fa-dumbbell"></i> Gym Access</span>
+                    <span><i class="fas fa-wifi"></i> High-Speed WiFi</span>
+                </div>
+                <div class="card-footer">
+                    <span class="price">₹8,500/mo</span>
+                    <a href="booking.html" class="btn-sm">Book</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="text-center">
+    <p>© 2026 HMates | Designed by Deepak Yadav & Tech Trio at JECRC</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
