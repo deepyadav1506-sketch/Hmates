@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Dashboard | HMates Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="admin-body">
+
+    <aside class="admin-sidebar">
+        <div class="sidebar-brand">
+            <img src="css/logo.jpg" alt="Logo">
+            <h2>HMates<span>.</span></h2>
+        </div>
+        <nav class="sidebar-menu">
+            <ul>
+                <li class="active"><a href="#"><i class="fas fa-plus-circle"></i> Add New Hostel</a></li>
+                 <li><a href="my-listings-section" onclick="showSection('my-listings')"><i class="fas fa-hotel"></i> My Listings</a></li>
+                <li><a href="#booking-requests"><i class="fas fa-bell"></i> Booking Requests</a></li>
+                <li><a href="index.html"><i class="fas fa-eye"></i> View Website</a></li>
+                <li><a href="login.html" class="logout-link"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="admin-main">
+        <header class="admin-topbar">
+            <div class="welcome-msg">
+                <h3>Welcome back, Owner!</h3>
+                <p>Manage your properties near JECRC & Poornima universities.</p>
+            </div>
+            <div class="admin-profile">
+                <img src="https://ui-avatars.com/api/?name=Hostel+Owner&background=ff690f&color=fff" alt="Profile">
+            </div>
+        </header>
+
+        <section class="admin-content-card">
+            <div class="card-header">
+                <h3><i class="fas fa-edit"></i> List a New Hostel</h3>
+            </div>
+            <form class="admin-form" onsubmit="return saveHostelData()">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Hostel Name</label>
+                        <input type="text" id="hName" placeholder="e.g. HMates Boys Residency" required>
+                    </div>
+                    <div class="form-group">
+                     <label>Nearest Institution</label>
+                        <select id="hInstitution" class="form-control">
+                         <option value="JECRC">JECRC University</option>
+                           <option value="Poornima">Poornima University</option>
+                           <option value="RU">Rajasthan University</option>
+                           <option value="SKIT">SKIT / VIT</option>
+                            <option value="School">Nearby Schools</option>
+                               <option value="Other">Other Location</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Hostel Type</label>
+                        <select id="hType">
+                            <option value="boys">Boys Hostel</option>
+                            <option value="girls">Girls Hostel</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Monthly Rent (Single)</label>
+                        <input type="number" id="basePrice" placeholder="₹" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Double Sharing Discount</label>
+                        <input type="number" id="doubleDisc" placeholder="₹ Amount to subtract">
+                    </div>
+                    <div class="form-group">
+                        <label>Extra Charges for AC</label>
+                        <input type="number" id="acExtra" placeholder="₹ Extra per month">
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit-admin">Publish Listing Now</button>
+            </form>
+        </section>
+         
+       
+
+<section id="my-listings-section" class="admin-content-card mt-2" style="display:none;">
+    <div class="card-header">
+        <h3><i class="fas fa-list-ul"></i> Your Properties</h3>
+    </div>
+    <div class="listings-table-wrapper">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Hostel Name</th>
+                    <th>Location</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="my-listings-body">
+                </tbody>
+        </table>
+    </div>
+</section>
+
+        <section id="booking-requests" class="admin-content-card mt-2">
+            <div class="card-header">
+                <h3><i class="fas fa-list"></i> Recent Booking Requests</h3>
+            </div>
+            <div id="booking-container" class="booking-table-wrapper">
+                <p class="empty-msg">No new requests. Active listings are shown to students!</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Booking | HMates</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light">
+
+    <header class="main-header">
+        <div class="container navbar">
+            <div class="logo">
+                <img src="css/logo.jpg" alt="HMates Logo">
+                <h1>HMates<span>.</span></h1>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="hostels.html">Explore</a>
+                <a href="booking.html" class="active">Book Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container booking-layout">
+        <div class="booking-form-card">
+            <h2>Complete Your Booking</h2>
+            <p>Please provide your details to reserve your bed.</p>
+
+            <form onsubmit="return bookHostel()">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-phone"></i> Contact Number</label>
+                    <input type="tel" id="phone" placeholder="Enter mobile number" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-hotel"></i> Select Hostel</label>
+                        <select id="hostel" onchange="updatePrice()" required>
+                            <option value="">-- Choose Hostel --</option>
+                            </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Sharing Type</label>
+                        <select id="room" onchange="updatePrice()">
+                            <option value="Single">Single Sharing</option>
+                            <option value="Double">Double Sharing</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Room Category</label>
+                        <select id="roomCategory" onchange="updatePrice()">
+                            <option value="non-ac">Non-AC</option>
+                            <option value="ac">AC Room</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary-large">Confirm Booking Request</button>
+            </form>
+        </div>
+
+        <aside class="price-summary-card">
+            <h3>Fare Summary</h3>
+            <div class="price-item">
+                <span>Base Rent</span>
+                <span id="base-price">₹0</span>
+            </div>
+            <div class="price-item">
+                <span>Room Adjustment</span>
+                <span id="room-extra" class="discount">₹0</span>
+            </div>
+            <div class="price-item">
+                <span>AC Extra Charges</span>
+                <span id="ac-category">₹0</span>
+            </div>
+            <hr>
+            <div class="price-total">
+                <span>Total / Month</span>
+                <span id="price">₹0</span>
+            </div>
+            <p class="price-note">*Final price depends on owner's confirmation.</p>
+        </aside>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
