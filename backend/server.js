@@ -9,7 +9,7 @@ const app = express();
 // 1. Middleware
 app.use(cors());
 app.use(express.json());
-
+app.use('/api/auth', require('./routes/auth'));
 // 2. MongoDB Connection
 const uri = process.env.MONGO_URI; 
 
