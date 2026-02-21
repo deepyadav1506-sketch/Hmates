@@ -1,78 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register | Join HMates Community</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register | Join HMates</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body class="login-page">
 
 <header class="transparent-header container">
-    <div class="logo-section">
-        <img src="css/logo.jpg" alt="Logo" width="45">
-        <h1>HMates<span>.</span></h1>
-    </div>
-    <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+  <div class="logo-section">
+    <img src="./css/logo.jpg" alt="Logo" width="45">
+    <h1>HMates<span>.</span></h1>
+  </div>
+  <a href="index.html" class="back-home">
+    <i class="fas fa-arrow-left"></i> Back to Home
+  </a>
 </header>
 
 <section class="login-wrapper">
-    <div class="login-card registration-card">
-        <div class="login-icon">
-            <i class="fas fa-user-plus"></i>
-        </div>
-        
-        <div class="login-text">
-            <h2>Create Account</h2>
-            <p>Fraud-free booking ke liye register karein.</p>
-        </div>
+  <div class="login-card registration-card">
 
-        <form onsubmit="return handleRegistration()">
-            <div class="input-group">
-                <label><i class="fas fa-user-tag"></i> Join as a...</label>
-                <select id="regRole" onchange="toggleRegFields()" required>
-                    <option value="customer">Student / Tenant</option>
-                    <option value="owner">Hostel/PG Owner</option>
-                    <option value="institution">School / College / University</option>
-                </select>
-            </div>
-
-            <div class="input-group relative">
-                <i class="fas fa-user input-icon"></i>
-                <input type="text" id="regName" placeholder="Full Name" required>
-            </div>
-
-            <div class="input-group relative">
-                <i class="fas fa-envelope input-icon"></i>
-                <input type="email" id="regEmail" placeholder="Email Address" required>
-            </div>
-
-            <div class="input-group relative">
-                <i class="fas fa-phone input-icon"></i>
-                <input type="tel" id="regPhone" placeholder="Mobile Number" required>
-            </div>
-
-            <div class="input-group relative" id="orgNameGroup">
-                <i class="fas fa-university input-icon"></i>
-                <input type="text" id="regOrgName" placeholder="Your College / School Name">
-            </div>
-
-            <div class="input-group relative">
-                <i class="fas fa-lock input-icon"></i>
-                <input type="password" id="regPass" placeholder="Create Strong Password" required>
-            </div>
-
-            <button type="submit" id="regBtn" class="btn-login">Verify & Register <i class="fas fa-check-circle"></i></button>
-        </form>
-
-        <div class="login-footer">
-            <p>Already registered? <a href="login.html">Login here</a></p>
-        </div>
+    <div class="login-icon">
+      <i class="fas fa-user-plus"></i>
     </div>
+
+    <div class="login-text">
+      <h2>Create Account</h2>
+      <p>Join HMates for a better experience.</p>
+    </div>
+
+    <form id="registerForm">
+
+      <div class="input-group relative">
+        <i class="fas fa-user input-icon"></i>
+        <input type="text" id="regName" placeholder="Full Name" required>
+      </div>
+
+      <div class="input-group relative">
+        <i class="fas fa-envelope input-icon"></i>
+        <input type="email" id="regEmail" placeholder="Email Address" required>
+      </div>
+
+      <div class="input-group relative">
+        <i class="fas fa-lock input-icon"></i>
+        <input type="password" id="regPass" placeholder="Create Password" required>
+      </div>
+
+      <button type="submit" id="regBtn" class="btn-login">
+        Register Now <i class="fas fa-check-circle"></i>
+      </button>
+
+    </form>
+
+    <div class="login-footer">
+      <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+
+  </div>
 </section>
 
-<script src="js/script.js"></script>
+<script>
+const registerForm = document.getElementById("registerForm");
+
+registerForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const username = document.getElementById("regName").value;
+  const email = document.getElementById("regEmail").value;
+  const password = document.getElementById("regPass").value;
+
+  try {
+    const response = await fetch("http://127.0.0.1:5000/api/auth/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ username, email, password })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      alert(data.message);
+      return;
+    }
+
+    alert("Registration Successful ✅");
+    window.location.href = "login.html";
+
+  } catch (err) {
+    alert("Server not responding ❌");
+  }
+});
+</script>
+
 </body>
 </html>
