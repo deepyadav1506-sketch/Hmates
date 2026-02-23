@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HMates | Access Portal</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<script>
-const loginForm = document.querySelector('form');
-
-</script>
 
 <body class="login-page">
 
@@ -20,7 +17,9 @@ const loginForm = document.querySelector('form');
         <img src="css/logo.jpg" alt="Logo" width="45">
         <h1>HMates<span>.</span></h1>
     </div>
-    <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    <a href="index.html" class="back-home">
+        <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
 </header>
 
 <section class="login-wrapper">
@@ -34,9 +33,12 @@ const loginForm = document.querySelector('form');
             <p>Your journey to a better stay starts here.</p>
         </div>
 
-        <form onsubmit="return loginUser()">
+        <form id="loginForm">
+            
             <div class="input-group">
-                <label for="role"><i class="fas fa-id-badge"></i> Select Your Role</label>
+                <label for="role">
+                    <i class="fas fa-id-badge"></i> Select Your Role
+                </label>
                 <select id="role">
                     <option value="customer">I am a Student / Customer</option>
                     <option value="owner">I am a Hostel Owner</option>
@@ -58,18 +60,55 @@ const loginForm = document.querySelector('form');
                 <a href="#">Forgot Password?</a>
             </div>
 
-            <button type="submit" id="loginBtn" class="btn-login">Login  <i class="fas fa-sign-in-alt"></i></button>
+            <button type="submit" class="btn-login">
+                Login <i class="fas fa-sign-in-alt"></i>
+            </button>
+
         </form>
+
         <div class="login-footer">
-          <p>Don't have an account? <a href="register.html">Register here</a></p>
+            <p>Don't have an account? <a href="register.html">Register here</a></p>
         </div>
 
         <div class="login-footer">
             <p>New to HMates? <a href="contact.html">Join our community</a></p>
         </div>
+
     </div>
 </section>
 
-<script src="js/script.js"></script>
+<!-- LOGIN SCRIPT -->
+<script>
+document.getElementById("loginForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    try {
+        const response = await fetch("http://127.0.0.1:5000/api/auth/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            alert(data.message);
+            return;
+        }
+
+        alert("Login Successful ✅");
+        window.location.href = "index.html";
+
+    } catch (error) {
+        alert("Server not responding ❌");
+    }
+});
+</script>
+
 </body>
 </html>

@@ -64,37 +64,42 @@
 </section>
 
 <script>
-const registerForm = document.getElementById("registerForm");
+document.addEventListener("DOMContentLoaded", function () {
 
-registerForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
+  const registerForm = document.getElementById("registerForm");
 
-  const username = document.getElementById("regName").value;
-  const email = document.getElementById("regEmail").value;
-  const password = document.getElementById("regPass").value;
+  registerForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-  try {
-    const response = await fetch("http://127.0.0.1:5000/api/auth/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ username, email, password })
-    });
+    const username = document.getElementById("regName").value;
+    const email = document.getElementById("regEmail").value;
+    const password = document.getElementById("regPass").value;
 
-    const data = await response.json();
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ username, email, password })
+      });
 
-    if (!response.ok) {
-      alert(data.message);
-      return;
+      const data = await response.json();
+
+      if (!response.ok) {
+        alert(data.message);
+        return;
+      }
+
+      alert("Registration Successful ✅");
+      window.location.href = "login.html";
+
+    } catch (err) {
+      console.error(err);
+      alert("Server not responding ❌");
     }
+  });
 
-    alert("Registration Successful ✅");
-    window.location.href = "login.html";
-
-  } catch (err) {
-    alert("Server not responding ❌");
-  }
 });
 </script>
 
