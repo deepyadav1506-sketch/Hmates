@@ -78,7 +78,7 @@
 </section>
 
 <!-- LOGIN SCRIPT -->
-<script>
+ <script>
 document.getElementById("loginForm").addEventListener("submit", async function (e) {
     e.preventDefault();
 
@@ -101,11 +101,15 @@ document.getElementById("loginForm").addEventListener("submit", async function (
             return;
         }
 
-       localStorage.setItem("isLoggedIn", "true");
-localStorage.setItem("userEmail", email);
+        alert("Login Successful ✅");
 
-alert("Login Successful ✅");
-window.location.href = "dashboard.html";
+        const role = document.getElementById("role").value;
+
+        if (role === "customer") {
+            window.location.href = "index.html";
+        } else {
+            window.location.href = "owner-dashboard.html";
+        }
 
     } catch (error) {
         alert("Server not responding ❌");

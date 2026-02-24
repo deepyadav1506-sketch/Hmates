@@ -13,7 +13,6 @@ app.get("/", (req, res) => {
   res.send("HMates Backend is Online 🚀");
 });
 
-/* ---------- DATABASE ---------- */
 
 /* ---------- ROUTES ---------- */
 app.use("/api/auth", require("./routes/auth"));
