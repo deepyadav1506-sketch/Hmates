@@ -41,8 +41,12 @@
             <div class="card-header">
                 <h3><i class="fas fa-edit"></i> List a New Hostel</h3>
             </div>
-            <form class="admin-form" onsubmit="return saveHostelData()">
+            <form id="hostelForm" class="admin-form">
                 <div class="form-grid">
+                    <div class="form-group">
+    <label>Hostel Location</label>
+    <input type="text" id="hLocation" placeholder="Jagatpura, Jaipur" required>
+</div>
                     <div class="form-group">
                         <label>Hostel Name</label>
                         <input type="text" id="hName" placeholder="e.g. HMates Boys Residency" required>
@@ -98,8 +102,8 @@
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody id="my-listings-body">
-                </tbody>
+            
+<tbody id="my-listings-body">
         </table>
     </div>
 </section>
@@ -115,5 +119,221 @@
     </main>
 
     <script src="js/script.js"></script>
+    <script>
+document.getElementById("hostelForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+const hostelData = {
+
+name: document.getElementById("hName").value,
+institution: document.getElementById("hInstitution").value,
+gender: document.getElementById("hType").value,
+basePrice: document.getElementById("basePrice").value,
+acExtra: document.getElementById("acExtra").value,
+doubleDiscount: document.getElementById("doubleDisc").value,
+location: document.getElementById("hLocation").value,
+
+ownerId: localStorage.getItem("userId")
+
+};
+
+try {
+
+const response = await fetch("http://127.0.0.1:5000/api/hostels", {
+
+method: "POST",
+
+headers: {
+"Content-Type": "application/json"
+},
+
+body: JSON.stringify(hostelData)
+
+});
+
+const data = await response.json();
+
+alert("Hostel Added Successfully ✅");
+
+} catch (error) {
+
+alert("Server Error ❌");
+
+}
+});
+
+  
+
+</script>
+<script>
+async function loadOwnerHostels(){
+
+const response = await fetch(
+"http://127.0.0.1:5000/api/hostels/owner/" + localStorage.getItem("userId")
+);
+const hostels = await response.json();
+
+const table = document.getElementById("my-listings-body");
+table.innerHTML = "";
+
+hostels.forEach(hostel => {
+
+const row = `
+<tr>
+
+<td>${hostel.name}</td>
+
+<td>${hostel.location}</td>
+
+<td>₹${hostel.basePrice}</td>
+
+<td>
+<button onclick="deleteHostel('${hostel._id}')" class="btn-sm">
+Delete
+</button>
+</td>
+
+</tr>
+`;
+
+table.innerHTML += row;
+
+});
+
+}
+
+async function deleteHostel(id){
+
+if(!confirm("Delete this hostel?")) return;
+
+await fetch(`http://127.0.0.1:5000/api/hostels/${id}`,{
+method:"DELETE"
+});
+
+alert("Hostel deleted");
+
+loadOwnerHostels();
+
+}
+
+document.addEventListener("DOMContentLoaded", loadOwnerHostels);
+</script>
+<script>
+
+async function loadBookings(){
+
+try{
+
+const response = await fetch("http://127.0.0.1:5000/api/bookings");
+const bookings = await response.json();
+
+const container = document.getElementById("booking-container");
+
+if(bookings.length === 0){
+container.innerHTML = "<p>No booking requests yet</p>";
+return;
+}
+
+let html = `
+<table class="admin-table">
+<thead>
+<tr>
+<th>Student</th>
+<th>Phone</th>
+<th>Hostel</th>
+<th>Sharing</th>
+<th>Room</th>
+</tr>
+</thead>
+<tbody>
+`;
+
+bookings.forEach(b => {
+
+html += `
+<tr>
+<td>${b.name}</td>
+<td>${b.phone}</td>
+<td>${b.hostelName}</td>
+<td>${b.sharing}</td>
+<td>${b.roomType}</td>
+</tr>
+`;
+
+});
+
+html += "</tbody></table>";
+
+container.innerHTML = html;
+
+}catch(error){
+
+console.error("Error loading bookings", error);
+
+}
+
+}
+
+document.addEventListener("DOMContentLoaded", loadBookings);
+
+</script>
+<script>
+
+async function loadBookings(){
+
+try{
+
+const response = await fetch("http://127.0.0.1:5000/api/bookings");
+const bookings = await response.json();
+
+const container = document.getElementById("booking-container");
+
+if(bookings.length === 0){
+container.innerHTML = "<p>No booking requests yet</p>";
+return;
+}
+
+let html = `
+<table class="admin-table">
+<thead>
+<tr>
+<th>Student</th>
+<th>Phone</th>
+<th>Hostel</th>
+<th>Sharing</th>
+<th>Room</th>
+</tr>
+</thead>
+<tbody>
+`;
+
+bookings.forEach(b => {
+
+html += `
+<tr>
+<td>${b.name}</td>
+<td>${b.phone}</td>
+<td>${b.hostelName}</td>
+<td>${b.sharing}</td>
+<td>${b.roomType}</td>
+</tr>
+`;
+
+});
+
+html += "</tbody></table>";
+
+container.innerHTML = html;
+
+}catch(error){
+
+console.error("Error loading bookings", error);
+
+}
+
+}
+
+document.addEventListener("DOMContentLoaded", loadBookings);
+
+</script>
 </body>
 </html>

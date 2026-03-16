@@ -29,10 +29,10 @@
             <h2>Complete Your Booking</h2>
             <p>Please provide your details to reserve your bed.</p>
 
-            <form onsubmit="return bookHostel()">
+            <form id="bookingForm">
                 <div class="form-group">
                     <label><i class="fas fa-user"></i> Full Name</label>
-                    <input type="text" id="name" placeholder="Enter your name" required>
+                    <input type="text" id="fullName" placeholder="Enter your name" required>
                 </div>
 
                 <div class="form-group">
@@ -94,5 +94,120 @@
     </main>
 
     <script src="js/script.js"></script>
+    <script>
+
+document.getElementById("bookingForm").addEventListener("submit", async function(e){
+
+e.preventDefault();
+
+const bookingData = {
+
+name: document.getElementById("fullName").value,
+phone: document.getElementById("phone").value,
+hostelName: document.getElementById("hostel").value,
+sharing: document.getElementById("room").value,
+roomType: document.getElementById("roomCategory").value,
+price: document.getElementById("price").innerText,
+ownerId: localStorage.getItem("userId")
+
+};
+
+try{
+
+const response = await fetch("http://127.0.0.1:5000/api/bookings",{
+
+method:"POST",
+headers:{ "Content-Type":"application/json" },
+body: JSON.stringify(bookingData)
+
+});
+
+alert("Booking request sent successfully ✅");
+
+document.getElementById("bookingForm").reset();
+
+}catch(error){
+
+alert("Booking failed ❌");
+
+}
+
+});
+
+</script>
+<script>
+
+async function loadHostels(){
+
+try{
+
+const response = await fetch("http://127.0.0.1:5000/api/hostels");
+const hostels = await response.json();
+
+const dropdown = document.getElementById("hostel");
+
+hostels.forEach(hostel => {
+
+const option = document.createElement("option");
+
+option.value = hostel.name;
+option.textContent = hostel.name + " (" + hostel.location + ")";
+
+dropdown.appendChild(option);
+
+});
+
+}catch(error){
+
+console.error("Error loading hostels", error);
+
+}
+
+}
+
+document.addEventListener("DOMContentLoaded", loadHostels);
+
+</script>
+<script>
+
+document.getElementById("bookingForm").addEventListener("submit", async function(e){
+
+e.preventDefault();
+
+const bookingData = {
+
+name: document.getElementById("fullName").value,
+phone: document.getElementById("phone").value,
+hostelName: document.getElementById("hostel").value,
+sharing: document.getElementById("room").value,
+roomType: document.getElementById("roomCategory").value,
+price: 0
+
+};
+
+try{
+
+await fetch("http://127.0.0.1:5000/api/bookings",{
+
+method:"POST",
+headers:{ "Content-Type":"application/json" },
+body: JSON.stringify(bookingData)
+
+});
+
+alert("Booking request sent successfully ✅");
+
+document.getElementById("bookingForm").reset();
+
+}catch(error){
+
+alert("Booking failed ❌");
+
+}
+
+});
+
+</script>
+
 </body>
 </html>

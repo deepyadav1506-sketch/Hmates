@@ -1,120 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HMates | Access Portal</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HMates | Access Portal</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body class="login-page">
 
 <header class="transparent-header container">
-    <div class="logo-section">
-        <img src="css/logo.jpg" alt="Logo" width="45">
-        <h1>HMates<span>.</span></h1>
-    </div>
-    <a href="index.html" class="back-home">
-        <i class="fas fa-arrow-left"></i> Back to Home
-    </a>
+<div class="logo-section">
+<img src="css/logo.jpg" alt="Logo" width="45">
+<h1>HMates<span>.</span></h1>
+</div>
+
+<a href="index.html" class="back-home">
+<i class="fas fa-arrow-left"></i> Back to Home
+</a>
 </header>
 
 <section class="login-wrapper">
-    <div class="login-card">
-        <div class="login-icon">
-            <i class="fas fa-user-shield"></i>
-        </div>
-        
-        <div class="login-text">
-            <h2>Welcome Back</h2>
-            <p>Your journey to a better stay starts here.</p>
-        </div>
 
-        <form id="loginForm">
-            
-            <div class="input-group">
-                <label for="role">
-                    <i class="fas fa-id-badge"></i> Select Your Role
-                </label>
-                <select id="role">
-                    <option value="customer">I am a Student / Customer</option>
-                    <option value="owner">I am a Hostel Owner</option>
-                </select>
-            </div>
+<div class="login-card">
 
-            <div class="input-group relative">
-                <i class="fas fa-envelope input-icon"></i>
-                <input type="email" id="email" placeholder="Email Address" required>
-            </div>
+<div class="login-icon">
+<i class="fas fa-user-shield"></i>
+</div>
 
-            <div class="input-group relative">
-                <i class="fas fa-lock input-icon"></i>
-                <input type="password" id="password" placeholder="Password" required>
-            </div>
+<div class="login-text">
+<h2>Welcome Back</h2>
+<p>Your journey to a better stay starts here.</p>
+</div>
 
-            <div class="form-helper">
-                <label><input type="checkbox"> Remember Me</label>
-                <a href="#">Forgot Password?</a>
-            </div>
+<form id="loginForm">
 
-            <button type="submit" class="btn-login">
-                Login <i class="fas fa-sign-in-alt"></i>
-            </button>
+<div class="input-group">
+<label for="role">
+<i class="fas fa-id-badge"></i> Select Your Role
+</label>
 
-        </form>
+<select id="role">
+<option value="customer">I am a Student / Customer</option>
+<option value="owner">I am a Hostel Owner</option>
+</select>
 
-        <div class="login-footer">
-            <p>Don't have an account? <a href="register.html">Register here</a></p>
-        </div>
+</div>
 
-        <div class="login-footer">
-            <p>New to HMates? <a href="contact.html">Join our community</a></p>
-        </div>
+<div class="input-group relative">
+<i class="fas fa-envelope input-icon"></i>
+<input type="email" id="email" placeholder="Email Address" required>
+</div>
 
-    </div>
+<div class="input-group relative">
+<i class="fas fa-lock input-icon"></i>
+<input type="password" id="password" placeholder="Password" required>
+</div>
+
+<div class="form-helper">
+<label><input type="checkbox"> Remember Me</label>
+<a href="#">Forgot Password?</a>
+</div>
+
+<button type="submit" class="btn-login">
+Login <i class="fas fa-sign-in-alt"></i>
+</button>
+
+</form>
+
+<div class="login-footer">
+<p>Don't have an account? <a href="register.html">Register here</a></p>
+</div>
+
+<div class="login-footer">
+<p>New to HMates? <a href="contact.html">Join our community</a></p>
+</div>
+
+</div>
+
 </section>
 
 <!-- LOGIN SCRIPT -->
- <script>
-document.getElementById("loginForm").addEventListener("submit", async function (e) {
-    e.preventDefault();
+<script>
 
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value.trim();
+document.getElementById("loginForm").addEventListener("submit", async function(e){
 
-    try {
-        const response = await fetch("http://127.0.0.1:5000/api/auth/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ email, password })
-        });
+e.preventDefault();
 
-        const data = await response.json();
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+const role = document.getElementById("role").value;
 
-        if (!response.ok) {
-            alert(data.message);
-            return;
-        }
+try{
 
-        alert("Login Successful ✅");
+const response = await fetch("http://127.0.0.1:5000/api/auth/login",{
 
-        const role = document.getElementById("role").value;
+method:"POST",
 
-        if (role === "customer") {
-            window.location.href = "index.html";
-        } else {
-            window.location.href = "owner-dashboard.html";
-        }
+headers:{
+"Content-Type":"application/json"
+},
 
-    } catch (error) {
-        alert("Server not responding ❌");
-    }
+body: JSON.stringify({email,password})
+
 });
+
+const data = await response.json();
+
+if(!response.ok){
+
+alert(data.message);
+return;
+
+}
+
+/* SAVE USER ID */
+localStorage.setItem("userId", data.userId);
+
+/* REDIRECT BASED ON ROLE */
+
+if(role === "customer"){
+
+window.location.href = "index.html";
+
+}else{
+
+window.location.href = "owner-dashboard.html";
+
+}
+
+}catch(error){
+
+alert("Server not responding ❌");
+
+}
+
+});
+
 </script>
 
 </body>
