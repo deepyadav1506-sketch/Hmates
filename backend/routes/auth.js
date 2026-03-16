@@ -6,59 +6,81 @@ const User = require("../models/user");
 
 /* REGISTER */
 router.post("/register", async (req, res) => {
-  try {
-    const { username, email, password } = req.body;
 
-    if (!username || !email || !password) {
-      return res.status(400).json({ message: "All fields required" });
-    }
+try{
 
-    const existingUser = await User.findOne({ email });
+const { username, email, password } = req.body;
 
-    if (existingUser) {
-      return res.status(400).json({ message: "Email already exists" });
-    }
+if(!username || !email || !password){
+return res.status(400).json({ message: "All fields required" });
+}
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+const existingUser = await User.findOne({ email });
 
-    const newUser = new User({
-      username,
-      email,
-      password: hashedPassword
-    });
+if(existingUser){
+return res.status(400).json({ message: "Email already exists" });
+}
 
-    await newUser.save();
+/* HASH PASSWORD */
 
-    res.status(201).json({ message: "User registered successfully ✅" });
+const hashedPassword = await bcrypt.hash(password,10);
 
-  } catch (error) {
-    res.status(500).json({ message: "Server error ❌" });
-  }
+const newUser = new User({
+
+username,
+email,
+password: hashedPassword
+
+});
+
+await newUser.save();
+
+res.status(201).json({ message: "User registered successfully ✅" });
+
+}catch(error){
+
+res.status(500).json({ message: "Server error ❌" });
+
+}
+
 });
 
 
 /* LOGIN */
 router.post("/login", async (req, res) => {
-  try {
-    const { email, password } = req.body;
 
-    const user = await User.findOne({ email });
+try{
 
-    if (!user) {
-      return res.status(400).json({ message: "Invalid credentials ❌" });
-    }
+const { email, password } = req.body;
 
-    const isMatch = await bcrypt.compare(password, user.password);
+const user = await User.findOne({ email });
 
-    if (!isMatch) {
-      return res.status(400).json({ message: "Invalid credentials ❌" });
-    }
+if(!user){
+return res.status(400).json({ message: "User not found" });
+}
 
-    res.json({ message: "Login successful ✅" });
+/* CHECK PASSWORD */
 
-  } catch (error) {
-    res.status(500).json({ message: "Server error ❌" });
-  }
+const isMatch = await bcrypt.compare(password, user.password);
+
+if(!isMatch){
+return res.status(400).json({ message: "Invalid password" });
+}
+
+res.json({
+
+message: "Login successful",
+userId: user._id
+
 });
+
+}catch(error){
+
+res.status(500).json({ message: "Server error" });
+
+}
+
+});
+
 
 module.exports = router;

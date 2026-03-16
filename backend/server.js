@@ -23,6 +23,7 @@ app.get("/", (req, res) => {
 /* ---------- ROUTES ---------- */
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/hostels", require("./routes/hostels"));
+app.use("/api/bookings", require("./routes/bookings"));
 
 /* ---------- SERVER ---------- */
 const PORT = 5000;
