@@ -8,5 +8,40 @@
     "username": "Deepak",
     "email": "deepakyadav@gmail.com",
     "password": "$2b$10$1LE40/YiqlrRDeadK1KPEuZ/amrBEAT1IruFlRGAPp6i82w/kj4zy"
+  },
+  {
+    "username": "manish",
+    "email": "manishdost@gmail.com",
+    "password": "$2b$10$JYQe6OT4YJOkmxpXrGPqKeqUDxigpdUV5WMxKh5qQ/XX57j55JWha"
+  },
+  {
+    "username": "Aniket Choudhary",
+    "email": "aniketlonda@gmail.com",
+    "password": "$2b$10$qRLt8PeQfZ2TCEOify72i.U.vr0klhV2Ce2OQPKCe6THAYzOeLWO."
+  },
+  {
+    "username": "rahul",
+    "email": "rahul@gmail.com",
+    "password": "$2b$10$fWJV3ZiW7s9AbCSTu61DJ.5COxcTGfA1e8iMfGLax4D1jz/eBw7Sq"
+  },
+  {
+    "username": "payal",
+    "email": "payal@gmail.com",
+    "password": "$2b$10$ZH0f8ih9/KVcyiZs7gujxOKG5RnbtZ0twS8PfHjKG7yb1W2u83Sdi"
+  },
+  {
+    "username": "sera",
+    "email": "sera@gmail.com",
+    "password": "$2b$10$8G2MTkeZqf5tH6wxV7pz0.2Xd29OJhfRA5ECRynOinfolx6YothMe"
+  },
+  {
+    "username": "neev jhalani",
+    "email": "bdiya@gmail.com",
+    "password": "$2b$10$dTFXS/IbbOxbVkKSN7MBkukhjILGRUsewVhvSNN5jjHgWe3wo/QFq"
+  },
+  {
+    "username": "krishna",
+    "email": "krishna@gmail.com",
+    "password": "$2b$10$Onv6G./zgl2VbaaSHO.i6ORZ3d8AuMkTOkD8YW77jJLkl5ufBSFfi"
   }
 ]

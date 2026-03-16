@@ -8,6 +8,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+/* ---------- DATABASE CONNECTION ---------- */
+mongoose.connect("mongodb://127.0.0.1:27017/hmates")
+.then(() => console.log("MongoDB Connected ✅"))
+.catch(err => console.log(err));
+
 /* ---------- TEST ROUTE ---------- */
 app.get("/", (req, res) => {
   res.send("HMates Backend is Online 🚀");
